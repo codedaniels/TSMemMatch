@@ -115,7 +115,45 @@ p {
     margin: 5px auto;
 }
 
-.box {
+
+/*  BODY - CARD CONTENT */
+
+/* .box {
     height: 100px;
     width: 100px;
+} */
+
+.card {
+    height: 80%;
+    width: 80%;
+    top: 10%;
+    left: 10%;
+    position: relative;
+}
+
+.face, .back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.face {
+    background-color: #81AD72
+}
+
+.back { 
+    background-color: #6d7fcc
+}
+
+.card:hover > .back {
+    display: none
+}
+
+.CardContainer {
+    height: 200px;
+    width: 125px;
+    background-color: red;
+    float: left;
 }
