@@ -147,7 +147,7 @@ p {
     background-color: #6d7fcc
 }
 
-.card:hover > .back {
+.card.revealed .back {
     display: none
 }
 
