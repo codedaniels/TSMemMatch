@@ -226,28 +226,28 @@ $(document).ready(afterPageLoad);
 // Secondary Trial of Cards
 // ----------------------------------------------------- 
 
-var gameArray2 = ['buzz', 'woody', 'jessie', 'bullseye', 'hamm', 'mr potato head', 'mrs potato head', 'alien', 'zurg', 'peas', 'slinky dog', 't-rex', 'dolly', 'lotso', 'wheezy']
-var gameValues = [];
-var gameCardsID = [];
-var cardsFlipped = 0
+// var gameArray2 = ['buzz', 'woody', 'jessie', 'bullseye', 'hamm', 'mr potato head', 'mrs potato head', 'alien', 'zurg', 'peas', 'slinky dog', 't-rex', 'dolly', 'lotso', 'wheezy']
+// var gameValues = [];
+// var gameCardsID = [];
+// var cardsFlipped = 0
 
-function gameCardsIDShuffle () {
-    var iterator = this.length
-    var randomIndex;
-    var tempArray;
-    while (--i > 0) {
-        randomIndex = Math.floor(Math.random() * (iterator+1));
-        tempArray = this[randomIndex];
-        this[randomIndex] = this[iterator];
-        this[iterator]= tempArray
-    }
-}
+// function gameCardsIDShuffle () {
+//     var iterator = this.length
+//     var randomIndex;
+//     var tempArray;
+//     while (--i > 0) {
+//         randomIndex = Math.floor(Math.random() * (iterator+1));
+//         tempArray = this[randomIndex];
+//         this[randomIndex] = this[iterator];
+//         this[iterator]= tempArray
+//     }
+// }
 
-function createCardDivs () {
-    cardsFlipped = 0;
-    var output;
-    gameArray2.gameCardsIDShuffle();
-    for (var i = 0; i < gameArray2.length; i++){
-        output = output + '<div'
-    }
-}
+// function createCardDivs () {
+//     cardsFlipped = 0;
+//     var output;
+//     gameArray2.gameCardsIDShuffle();
+//     for (var i = 0; i < gameArray2.length; i++){
+//         output = output + '<div'
+//     }
+// }
