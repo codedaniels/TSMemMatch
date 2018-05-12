@@ -8,68 +8,51 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <header>
-            <div class="jumbotron">
-                <h1>GAME MENU: HEADER!!!</h1>
-            </div>
-        </header>
-            <div class="wrapper">
-                    <!-- Sidebar Holder -->
-                    <nav id="sidebar">
-                        <div class="sidebar-header">
-                            <h3>Matching Game Side Bar</h3>
-                        </div>
-        
-                        <ul class="list-unstyled components">
-                            <p>STATS:</p>
-                            <li class="active">
-                                <p>Times Played:</p>
-                            </li>
-                            <li>
-                                <p> Number of Tries:</p>
-                            </li>
-                            <li>
-                                <p>Accuracy:</p>
-                            </li>
-                        </ul>
-        
+            <header>
+                    <div class="jumbotron container-fluid">
+                    </div>
+                </header>
 
-                    </nav>
-        
-                    <!-- Page Content Holder -->
-                    <div id="content">
-        
-                        <nav class="navbar navbar-default">
-                            <div class="container-fluid">
-        
-                                <div class="navbar-header">
-                                    <button type="button" id="sidebarCollapse" class="navbar-btn">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </button>
-                                </div>
-        
-                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                    <p>click to toggle the sidebar</p>
-                                </div>
+<!-- modal button -->
+<!-- <button id="modalButton" type="button">Button</button> -->
+                
+                <div class="wrapper">
+        <!-- Sidebar Holder -->
+                        <nav id="sidebar">
+                            <div class="sidebar-header">
+                                <h3>Matching Game Side Bar</h3>
                             </div>
+            
+                            <ul class="list-unstyled">
+                                <p>STATS:</p>
+                                <li>
+                                    <p>Times Played:</p>
+                                </li>
+                                <li>
+                                    <p> Number of Tries:</p>
+                                </li>
+                                <li>
+                                    <p>Accuracy:</p>
+                                </li>
+                            </ul>
                         </nav>
-        
-                    <div>
-                        <div class="CardContainer">
-                            <div class="card">
-                                <div class="face">Front Side</div>
-                                <div class="back">Back Side</div>
-                            </div>
-                        </div>
-                        <div class="CardContainer">
-                                <div class="card">
-                                    <div class="face">Front Side</div>
-                                    <div class="back">Back Side</div>
-                                </div>
-                            </div>
+        <!-- Page Content Holder -->
+                <div>
+                    <div class="container">
+                        <div class="row" id="contentPanel">
                     </div>
                 </div>
+            </div>
+                </div>
+
+
+
+
+                    <!-- Modal example -->
+                    <!-- a modal is a dialog box that takes control of the page from the user -->
+                    <div id="modalShadow">
+                        <div id="modalBody">This is a modal</div>
+                    </div>
+                
     </body>
 </html>

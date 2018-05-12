@@ -1,14 +1,17 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
-
 body {
     font-family: 'Poppins', sans-serif;
-    background: #D0C4A4;
+    background: url('images/background.jpeg');
+    /* background-repeat: no-repeat; */
+    background-size: 100%;
 }
 
-.jumbotron {
+.jumbotron.container-fluid {
+    height: 200px;
     text-align: center;
-    background: #81AD72;
+    background: url('images/header-pixar2.jpg');
+    background-position: top;
+    background-size: 100%;
 }
 
 p {
@@ -41,31 +44,18 @@ p {
 .wrapper {
     display: flex;
     align-items: stretch;
-    perspective: 1500px;
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 20%;
+    max-width: 20%;
     background: #7386D5;
     color: #fff;
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
-    transform-origin: bottom left;
-}
-
-#sidebar.active {
-    margin-left: -250px;
-    transform: rotateY(100deg);
 }
 
 #sidebar .sidebar-header {
     padding: 20px;
     background: #6d7fcc;
-}
-
-#sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
 }
 
 #sidebar ul p {
@@ -74,62 +64,10 @@ p {
 }
 
 
+
 /* ---------------------------------------------------
-    CONTENT STYLE
+    BODY - CARD CONTENT
 ----------------------------------------------------- */
-#content {
-    padding: 20px;
-    min-height: 100vh;
-    transition: all 0.3s;
-}
-
-#sidebarCollapse {
-    width: 40px;
-    height: 40px;
-    background: #f5f5f5;
-}
-
-#sidebarCollapse span {
-    width: 80%;
-    height: 2px;
-    margin: 0 auto;
-    display: block;
-    background: #555;
-    transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
-    transition-delay: 0.2s;
-}
-
-#sidebarCollapse span:first-of-type {
-    transform: rotate(45deg) translate(2px, 2px);
-}
-#sidebarCollapse span:nth-of-type(2) {
-    opacity: 0;
-}
-#sidebarCollapse span:last-of-type {
-    transform: rotate(-45deg) translate(1px, -1px);
-}
-
-#sidebarCollapse.active span {
-    transform: none;
-    opacity: 1;
-    margin: 5px auto;
-}
-
-
-/*  BODY - CARD CONTENT */
-
-/* .box {
-    height: 100px;
-    width: 100px;
-} */
-
-.card {
-    height: 80%;
-    width: 80%;
-    top: 10%;
-    left: 10%;
-    position: relative;
-}
 
 .face, .back {
     position: absolute;
@@ -147,13 +85,81 @@ p {
     background-color: #6d7fcc
 }
 
-.card.revealed .back {
+.card-block.revealed .back {
     display: none
 }
 
-.CardContainer {
-    height: 200px;
-    width: 125px;
+.row {
+    width: 85%;
+}
+.card {
+    height: 328px;
+    width: 220px;
     background-color: red;
     float: left;
+}
+
+.card-block {
+    height: 80%;
+    width: 80%;
+    top: 10%;
+    left: 10%;
+    bottom: 5%;
+    position: relative;
+}
+
+.card-img {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+/* ---------------------------------------------------
+    Modal Stuff
+----------------------------------------------------- */
+#modalShadow {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.9);
+    display: none;
+}
+
+#modalBody {
+    color: white;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 50%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    min-width: 50%;
+    max-width: 50%;
+    min-height: 50%;
+    max-height: 50%
+}
+
+
+/* ---------------------------------------------------
+    Secondary Trial of Cards
+----------------------------------------------------- */
+div#gameBoard {
+    background: #81AD72;
+    border: black 1px solid;
+    width: 80%;
+    margin: 0px auto;
+}
+
+div#gameBoard > div {
+    background: url(tile.jpg) no-repeat;
+    border: black 1px solid;
+    width: 150px;
+    height: 200px;
+    float: left;
+    margin: 10px;
+    padding: 20px;
+    font-size: 64px;
+    cursor: pointer;
+    text-align: center;
 }
