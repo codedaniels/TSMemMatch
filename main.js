@@ -1,20 +1,53 @@
 $(document).ready(afterPageLoad);
-            
+
+
     function afterPageLoad() {
-        generateDivs(16);
+        doublingArrayValues(gameArray);
+        splittingArray(doubledArray,8);
+        arrayRandomizer(splitArray)
+        generateDivs();
         addEventListeners();
+        
     };
 
     function addEventListeners() {
-        $(".card-block").click(handleCardClick);
-        document.querySelector('#modalButton').addEventListener('click', showModal)
+        $(".card-block").on('click',handleCardClick);
+        // document.querySelector('#modalButton').addEventListener('click', showModal)
 
     }
-    var clickedCards = [];
-    function handleCardClick() {
-        $(this).addClass("revealed");
-        var clickedCard = this;
-    }
+
+    var gameArray = [
+        {name: "buzz",
+        image: 'images/card-buzz.jpg'},
+        {name: "woody",
+        image: 'images/card-woody.jpg'},
+        {name: "jessie",
+        image: 'images/card-jessie.jpg'},
+        {name: "bullseye",
+        image: 'images/card-bullseye.jpg'},
+        {name: "hamm",
+        image: 'images/card-hamm.jpg'},
+        {name: "mr potato head",
+        image: 'images/card-mrpotatohead.jpg'},
+        {name: "mrs potato head",
+        image: 'images/card-mrspotatohead.png'},
+        {name: "aliens",
+        image: 'images/card-aliens.jpg'},
+        {name: "zurg",
+        image: 'images/card-zurg.jpg'},
+        {name: "peas in a pod",
+        image: 'images/card-peas.jpg'},
+        {name: "slinky dog",
+        image: 'images/card-slinkydog.jpg'},
+        {name: "t rexx",
+        image: 'images/card-trex.jpg'},
+        {name: "dolly",
+        image: 'images/card-dolly.jpg'},
+        {name: "lotso",
+        image: 'images/card-lotso.jpg'},
+        {name: "wheezy",
+        image: 'images/card-wheezy.jpg'},        
+    ]
 
     // function to take an array and double each value inside so the original array doesn't have to have repeated values
     var doubledArray = [];
@@ -43,51 +76,122 @@ $(document).ready(afterPageLoad);
             randomizedArray = anyArray;
         }
     };
-    
+
     // function to dynamically create divs for the game
-    function generateDivs (numberOfDivs) {        
-        for (var i=1;i<=numberOfDivs;i++) {
+    function generateDivs () {        
+        for (var i=0;i<randomizedArray.length;i++) {
         var myCol = $('<div class="col-sm-3"></div>');
-        // var myPanel = $('<div class="card card-outline-info" id="'+i+'Panel"><div class="card-block"><div class="card-title face"><img src="images/cardface-aliens.jpeg"></div><div class="card-title back"><img class="card-img" src="images/cardback.jpeg"></div></div>');
-        var myPanel = $('<div class="card card-outline-info" id="'+i+'Panel"></div>');
+        var myPanel = $('<div class="card card-outline-info" id="cardName'+i+'Panel"></div>');
         var myCardBlock = $('<div class="card-block"></div>');
-        var myCardTitleFace = $('<div class="card-title face"><img class="card-img" src="images/cardface-aliens.jpeg"></div>');
+        // using the randomizedArray to input names
+        var myCardTitleFace = $(`<div class="card-title face"><img class="pictures card-${randomizedArray[i].name}" src="${randomizedArray[i].image}"></div>`);
         var myCardTitleBack = $('<div class="card-title back"><img class="card-img" src="images/cardback.jpeg"></div>');
         myCardTitleFace.appendTo(myCardBlock);
         myCardTitleBack.appendTo(myCardBlock);
         myCardBlock.appendTo(myPanel);
         myPanel.appendTo(myCol);
-        myCol.appendTo('#contentPanel');
+        myCol.appendTo('.row');
         }
     }   
 
-    // function to match cards on click and stop after 2 cards are clicked
-
-    function pairCheck (clickedCard1, clickedCard1) {
-        if (clickedCard1 === clickedCard1) {
-            console.log("match!")
-        } else {
-            console.log("try again")
-        }
+// function for matching cards
+var firstClickedCard = null;
+var secondClickedCard = null;
+var totalPairs = 8;
+var currentMatchCount = 0;
+var firstGuess;
+var secondGuess;
+var matchedGuesses = [];
+var clicked;
+var count = 0;
+function handleCardClick () {
+    clicked = $(this).addClass("revealed");
+if (firstClickedCard !== null && secondClickedCard !== null) {
+    return;
+}
+if (firstClickedCard === null) {
+    firstClickedCard = $(this);
+    firstGuess = firstClickedCard.find('img').attr('src');
+    if (matchedGuesses.includes(firstGuess)) {
+        firstClickedCard = null;
     }
-//     function flip() {
-//       if (!this.classList.contains('flipped') && flippedCards.length < 2) {
-//         this.classList.toggle('flipped');
-  
-//         flippedCards.push(this);
-  
-//         if (flippedCards.length === 2) {
-//           checkMatch();
-//         }
-//       }
-//     }
-  
+    else {
+        firstClickedCard.addClass('revealed');
+    }
+}
+else {
+    secondClickedCard = $(this);
+    secondGuess = secondClickedCard.find('img').attr('src');
+    if (matchedGuesses.includes(secondGuess)) {
+        secondClickedCard = null;
+        return;
+    } else {
+        secondClickedCard.addClass('revealed');
+        attempts += 1;
+    }
+    if (firstGuess === secondGuess) {
+        matchedGuesses += 1;
+        matches += 1;
+        firstClickedCard = null;
+        secondClickedCard = null;
+    }
+    else {  
+        setTimeout(slowReveal, 1000)
+    }
+}
+if ( matchedGuesses === totalPairs) {
+    winnerAlert();
+    setTimeout(slowReveal, 500)
+    setTimeout(winnerAlert, 3000)
+    setTimeout(resetGame, 2000)
+}
+else {
+    return;
+}
+}
 
-    var testArray = ['buzz', 'woody', 'jessie', 'bullseye', 'hamm', 'mr potato head', 'mrs potato head', 'alien', 'zurg', 'peas', 'slinky dog', 't-rex', 'dolly', 'lotso', 'wheezy'];
-    doublingArrayValues (testArray);
-    splittingArray(doubledArray, 16);
-    arrayRandomizer(splitArray);
-    console.log (randomizedArray);
+
+// for win put modal here
+ function winnerAlert(){
+     alert('You Won!')
+ }
+
+ function slowReveal() {
+    if (firstClickedCard !== secondClickedCard) {
+        $(firstClickedCard).removeClass('revealed');
+        $(secondClickedCard).removeClass('revealed');
+        firstClickedCard = null;
+        secondClickedCard = null;
+    }
+}
+
+var matches = 0;
+var attempts = 0;
+var accuracy = 0;
+var gamesPlayed = 0;
+// function for stats: 
+
+
+
+
+    // };
+
+
+      // resetting game
+var resetGuesses = function resetGuesses() {
+    firstGuess = null;
+    secondGuess = null;
+    totalPairs = 8;
+    currentMatchCount = 0;
+    firstClickedCard = null;
+    secondClickedCard = null;
+    matchedGuesses = [];
+//     games_played += 1;
+//     $('.gamesPlayed').text(games_played);
+//     reset_stats();
+//     display_stats();
+};
+
 
 
 
@@ -97,157 +201,5 @@ $(document).ready(afterPageLoad);
     }
 
 
-    // $(".back").click(function() {
-    //     $(".card").css("display", "none")
-    // })
-
-    
 
 
-
-// (function() {
-//     var countDown;
-//     var timeLoss;
-//     var scoreIncrementer;
-//     var flippedCards;
-//     var score = document.getElementsByClassName('score')[0];
-//     var timer = document.getElementsByClassName('timer')[0];
-//     var endGame = document.getElementsByClassName('game-over')[0];
-  
-//     function dealDeck() {
-//       var card = document.getElementsByClassName('card');
-//       var pics = ["url('images/100.jpg')", "url('images/101.jpg')", "url('images/102.jpg')", "url('images/103.jpg')", "url('images/104.jpg')", "url('images/105.jpg')", "url('images/106.jpg')", "url('images/107.jpg')", "url('images/100.jpg')", "url('images/101.jpg')", "url('images/102.jpg')", "url('images/103.jpg')", "url('images/104.jpg')", "url('images/105.jpg')", "url('images/106.jpg')", "url('images/107.jpg')"];
-  
-//       timeLoss = 59;
-//       scoreIncrementer = 0;
-//       flippedCards = [];
-  
-//       endGame.style.display = 'none';
-  
-//       shuffle(pics);
-  
-//       for (var i = 0; i < card.length; i++) {
-//         if(card[i].classList.contains('flipped')) {
-//           card[i].classList.toggle('flipped');
-//         }
-//         card[i].querySelector('.back').style.backgroundImage = pics[i];
-//         card[i].addEventListener('click', flip);
-//       }
-//       score.innerText = '00';
-  
-//       startTimer();
-//     }
-  
-//     function flip() {
-//       if (!this.classList.contains('flipped') && flippedCards.length < 2) {
-//         this.classList.toggle('flipped');
-  
-//         flippedCards.push(this);
-  
-//         if (flippedCards.length === 2) {
-//           checkMatch();
-//         }
-//       }
-//     }
-  
-//     function checkMatch() {
-//       if (flippedCards[0].querySelector('.back').style.backgroundImage === flippedCards[1].querySelector('.back').style.backgroundImage) {
-//         flippedCards = [];
-  
-//         score.innerText = '0' + ++scoreIncrementer;
-//       }
-//       else {
-//         setTimeout(flipBack, 1500);
-//       }
-//     }
-  
-//     function flipBack() {
-//       flippedCards[0].classList.toggle('flipped');
-//       flippedCards[1].classList.toggle('flipped');
-  
-//       flippedCards = [];
-//     }
-  
-//     function startTimer() {
-//       timer.innerText = '1:00';
-//       countDown = setInterval(decrementTime, 1000);
-//     }
-  
-//     function decrementTime() {
-//       if (timeLoss === 0) {
-//         timer.innerText = '0:0' + timeLoss;
-//         clearInterval(countDown);
-//         finalize();
-//       }
-//       if (timeLoss < 10) {
-//         timer.innerText = '0:0' + timeLoss;
-//       }
-//       if (timeLoss >= 10) {
-//         timer.innerText = '0:' + timeLoss;
-//       }
-//       if (scoreIncrementer === 8){
-//         clearInterval(countDown);
-//         finalize();
-//       }
-//       timeLoss--;
-//     }
-  
-//     function finalize() {
-//       var restart = document.getElementsByTagName('button')[0];
-//       restart.addEventListener('click', dealDeck);
-  
-//       endGame.style.display = 'flex';
-  
-//       if (scoreIncrementer === 8) {
-//         endGame.querySelector('h1').innerText = 'you win';
-//       }
-//       else {
-//         endGame.querySelector('h1').innerText = 'you lose';
-//       }
-//       endGame.querySelector('.final-score').innerText = 'score: ' + scoreIncrementer;
-//       endGame.querySelector('.time').innerText = 'time left: ' + timeLoss + ' sec.';
-//     }
-  
-//     function shuffle(array) {
-//       for (var i = array.length - 1; i > 0; i--) {
-//         var j = Math.floor(Math.random() * (i + 1));
-//         var temp = array[i];
-//         array[i] = array[j];
-//         array[j] = temp;
-//       }
-//       return array;
-//     }
-  
-//     dealDeck();
-//   })();
-
-
-// ---------------------------------------------------
-// Secondary Trial of Cards
-// ----------------------------------------------------- 
-
-// var gameArray2 = ['buzz', 'woody', 'jessie', 'bullseye', 'hamm', 'mr potato head', 'mrs potato head', 'alien', 'zurg', 'peas', 'slinky dog', 't-rex', 'dolly', 'lotso', 'wheezy']
-// var gameValues = [];
-// var gameCardsID = [];
-// var cardsFlipped = 0
-
-// function gameCardsIDShuffle () {
-//     var iterator = this.length
-//     var randomIndex;
-//     var tempArray;
-//     while (--i > 0) {
-//         randomIndex = Math.floor(Math.random() * (iterator+1));
-//         tempArray = this[randomIndex];
-//         this[randomIndex] = this[iterator];
-//         this[iterator]= tempArray
-//     }
-// }
-
-// function createCardDivs () {
-//     cardsFlipped = 0;
-//     var output;
-//     gameArray2.gameCardsIDShuffle();
-//     for (var i = 0; i < gameArray2.length; i++){
-//         output = output + '<div'
-//     }
-// }

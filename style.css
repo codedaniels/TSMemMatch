@@ -1,8 +1,5 @@
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
-    font-family: 'Poppins', sans-serif;
     background: url('images/background.jpeg');
-    /* background-repeat: no-repeat; */
     background-size: 100%;
 }
 
@@ -15,7 +12,6 @@ body {
 }
 
 p {
-    font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
@@ -49,13 +45,9 @@ p {
 #sidebar {
     min-width: 20%;
     max-width: 20%;
-    background: #7386D5;
+    background: rgb(131, 149, 219); 
+    /* get rid of background color later don't forget */
     color: #fff;
-}
-
-#sidebar .sidebar-header {
-    padding: 20px;
-    background: #6d7fcc;
 }
 
 #sidebar ul p {
@@ -63,6 +55,10 @@ p {
     padding: 10px;
 }
 
+#stats {
+    min-width: 100%;
+    max-width: 100%;
+}
 
 
 /* ---------------------------------------------------
@@ -95,28 +91,29 @@ p {
 .card {
     height: 328px;
     width: 220px;
-    background-color: red;
     float: left;
 }
 
 .card-block {
-    height: 80%;
-    width: 80%;
+    height: 100%;
+    width: 100%;
     top: 10%;
     left: 10%;
     bottom: 5%;
     position: relative;
 }
 
-.card-img {
+.pictures {
     height: 100%;
-    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
     position: relative;
 }
+
 /* ---------------------------------------------------
     Modal Stuff
 ----------------------------------------------------- */
-#modalShadow {
+/* #modalShadow {
     position: fixed;
     left: 0;
     top: 0;
@@ -138,28 +135,4 @@ p {
     max-width: 50%;
     min-height: 50%;
     max-height: 50%
-}
-
-
-/* ---------------------------------------------------
-    Secondary Trial of Cards
------------------------------------------------------ */
-div#gameBoard {
-    background: #81AD72;
-    border: black 1px solid;
-    width: 80%;
-    margin: 0px auto;
-}
-
-div#gameBoard > div {
-    background: url(tile.jpg) no-repeat;
-    border: black 1px solid;
-    width: 150px;
-    height: 200px;
-    float: left;
-    margin: 10px;
-    padding: 20px;
-    font-size: 64px;
-    cursor: pointer;
-    text-align: center;
-}
+} */
