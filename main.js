@@ -121,14 +121,14 @@ function handleCardClick() {
         secondClickedCard.addClass('revealed');
         attempts += 1;
         $(".attempts").text(attempts);
-        accuracy = ((matches / attempts)*100) >> 0
-        $(".accuracy").text(accuracy);
-        // why doesn't this show immediately after first pair attempt?
 
         if (firstGuess === secondGuess) {
             matches += 1;
             firstClickedCard = null;
             secondClickedCard = null;
+            accuracy = ((matches / attempts)*100) >> 0
+            $(".accuracy").text(accuracy);
+    
         }
         else {
             setTimeout(slowReveal, 1000)
