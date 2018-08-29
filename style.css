@@ -6,9 +6,10 @@ body {
 .jumbotron.container-fluid {
     height: 200px;
     text-align: center;
-    background: url('images/header-pixar2.jpg');
+    background: url('images/header-pixar3.jpg');
     background-position: top;
     background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 p {
