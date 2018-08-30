@@ -2,7 +2,7 @@ $(document).ready(afterPageLoad);
 
 function afterPageLoad() {
     doublingArrayValues(gameArray);
-    splittingArray(doubledArray,16);
+    splittingArray(doubledArray,4);
     arrayRandomizer(splitArray)
     generateDivs();
     addEventListeners();        
@@ -135,9 +135,9 @@ function handleCardClick() {
         }
 
         if (matches === totalPairs) {
-            setTimeout(slowReveal, 500)
-            setTimeout(winnerAlert, 500)
-            setTimeout(resetGuesses, 2000)
+            setTimeout(slowReveal, 500);
+            setTimeout(resetGuesses, 500);
+            setTimeout(showModal, 500);
 
         }
         else {
@@ -147,10 +147,7 @@ function handleCardClick() {
 }
 
 
-// for win put modal here
- function winnerAlert(){
-     alert('You Won!')
- }
+
 
  function slowReveal() {
     if (firstClickedCard !== secondClickedCard) {
@@ -183,12 +180,12 @@ function resetGuesses() {
 
 
 
-
     // MODAL STUFF BELOW
     function showModal(){
-        document.querySelector('#modalShadow').style.display = "block"
+        $('#winModal').removeClass("hide");
+        $('.playAgain').on("click",function(){
+            $('#winModal').addClass("hide");
+        })
+        
     }
-
-
-
 

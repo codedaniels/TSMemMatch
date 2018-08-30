@@ -6,7 +6,7 @@ body {
 .jumbotron.container-fluid {
     height: 200px;
     text-align: center;
-    background: url('images/header-pixar3.jpg');
+    background: url('images/header-banner3.png');
     background-position: top;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -16,7 +16,7 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+    font-family: "Comic Sans MS";
 }
 
 .navbar {
@@ -46,14 +46,14 @@ p {
 #sidebar {
     min-width: 20%;
     max-width: 20%;
-    background: rgb(131, 149, 219); 
-    /* get rid of background color later don't forget */
     color: #fff;
 }
 
 #sidebar ul p {
-    color: #fff;
-    padding: 10px;
+    color:blue;
+    padding: 10%;
+    text-shadow: 1px 1px whitesmoke;
+    
 }
 
 #stats {
@@ -117,26 +117,24 @@ p {
 /* ---------------------------------------------------
     Modal Stuff
 ----------------------------------------------------- */
-/* #modalShadow {
+.winModal {
     position: fixed;
     left: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0,0,0,.9);
-    display: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-#modalBody {
-    color: white;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    width: 50%;
-    background-color: white;
-    transform: translate(-50%, -50%);
-    min-width: 50%;
-    max-width: 50%;
-    min-height: 50%;
-    max-height: 50%
-} */
+.modal-content iframe{
+    margin: 0 auto;
+    display: block;
+}
+
+.modal-body {
+    align-content: center;
+}
