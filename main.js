@@ -2,7 +2,7 @@ $(document).ready(afterPageLoad);
 
 function afterPageLoad() {
     doublingArrayValues(gameArray);
-    splittingArray(doubledArray,4);
+    splittingArray(doubledArray,16);
     arrayRandomizer(splitArray)
     generateDivs();
     addEventListeners();        
