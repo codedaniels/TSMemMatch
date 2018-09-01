@@ -9,7 +9,7 @@ function afterPageLoad() {
 };
 
 function addEventListeners() {
-    $(".card-block").on('click',handleCardClick);
+    $(".card").on('click',handleCardClick);
     // document.querySelector('#modalButton').addEventListener('click', showModal)
 }
 
@@ -79,16 +79,14 @@ function arrayRandomizer (anyArray) {
 // function to dynamically create divs for the game depending on the length i made using the splitting array's function
 function generateDivs () {        
     for (var i=0;i<randomizedArray.length;i++) {
-    var myCol = $('<div class="col-sm-3"></div>');
-    var myPanel = $('<div class="card card-outline-info"></div>');
-    var myCardBlock = $('<div class="card-block"></div>');
+    var myCol = $('<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>');
+    var myCardBlock = $('<div class="card"></div>');
     // using the randomizedArray to input names
     var myCardTitleFace = $(`<div class="card-title face"><img class="pictures card-${randomizedArray[i].name}" src="${randomizedArray[i].image}"></div>`);
-    var myCardTitleBack = $('<div class="card-title back"><img class="card-img" src="images/cardback.jpeg"></div>');
+    var myCardTitleBack = $('<div class="card-title back"><img class="pictures card" src="images/cardback.jpeg"></div>');
     myCardTitleFace.appendTo(myCardBlock);
     myCardTitleBack.appendTo(myCardBlock);
-    myCardBlock.appendTo(myPanel);
-    myPanel.appendTo(myCol);
+    myCardBlock.appendTo(myCol);
     myCol.appendTo('.row');
     }
 }   
@@ -111,6 +109,7 @@ function handleCardClick() {
         firstClickedCard = $(this);
         firstGuess = firstClickedCard.find('img').attr('src');
         firstClickedCard.addClass('revealed');
+        return;
     }
     else {
         if ($(this).hasClass('revealed')) {
@@ -172,7 +171,7 @@ function resetGuesses() {
     accuracy = 0
     $(".accuracy").text(accuracy);
     $(".gamesPlayed").text(gamesPlayed);
-    $(".card-block").removeClass('revealed');
+    $(".card").removeClass('revealed');
 //     $('.gamesPlayed').text(games_played);
 //     reset_stats();
 //     display_stats();
