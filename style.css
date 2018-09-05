@@ -5,6 +5,7 @@ body {
 
 .jumbotron.container-fluid {
     height: 200px;
+    max-width: 1000px;
     text-align: center;
     background: url('images/header-banner.png');
     background-position: top;
@@ -34,7 +35,8 @@ p {
 }
 
 .wrapper {
-width: 100vw;
+    display: inline-flex;
+    height: 100vh;
 }
 /* ---------------------------------------------------
     SIDEBAR STYLE
@@ -82,6 +84,7 @@ width: 100vw;
     height: 10%;
     width: 10%;
     float: left;
+    padding: 4%;
 }
 
 .card-block {
@@ -91,11 +94,13 @@ width: 100vw;
     left: 10%;
     bottom: 5%;
     position: relative;
+    padding: 1%;
 }
 
 .back .card-img {
     height: 200px;
     width: 200px;
+    padding: 1%;
 }
 
 .pictures {
