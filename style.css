@@ -33,24 +33,27 @@ p {
     border: none;
 }
 
-
+.wrapper {
+width: 100vw;
+}
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
 #sidebar {
-    padding-left: 2%;
-    min-width: 20%;
-    max-width: 20%;
+    min-width: 15%;
+    max-width: 15%;
 }
 
 #sidebar ul p {
+    padding-left: 2%;
     color: whitesmoke;
     text-shadow: 2px 2px 8px black;
     padding: 10px;
 }
 
 #stats {
+    padding-left: 2%;
     min-width: 100%;
     max-width: 100%;
 }
@@ -73,7 +76,7 @@ p {
 }
 
 .row {
-    width: 85%;
+    width: 75%;
 }
 .card {
     height: 10%;
@@ -108,26 +111,24 @@ p {
 /* ---------------------------------------------------
     Modal Stuff
 ----------------------------------------------------- */
-#modalShadow {
+.winModal {
     position: fixed;
     left: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0,0,0,.9);
-    display: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-#modalBody {
-    color: white;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    width: 50%;
-    background-color: white;
-    transform: translate(-50%, -50%);
-    min-width: 50%;
-    max-width: 50%;
-    min-height: 50%;
-    max-height: 50%
+.modal-content iframe{
+    margin: 0 auto;
+    display: block;
+}
+
+.modal-body {
+    align-content: center;
 }
