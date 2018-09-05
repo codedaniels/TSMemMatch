@@ -2,7 +2,7 @@ $(document).ready(afterPageLoad);
 
 function afterPageLoad() {
     doublingArrayValues(gameArray);
-    splittingArray(doubledArray,16);
+    splittingArray(doubledArray,2);
     arrayRandomizer(splitArray)
     generateDivs();
     addEventListeners();        
@@ -84,7 +84,7 @@ function generateDivs () {
     var myCardBlock = $('<div class="card-block"></div>');
     // using the randomizedArray to input names
     var myCardTitleFace = $(`<div class="card-title face"><img class="pictures card-${randomizedArray[i].name}" src="${randomizedArray[i].image}"></div>`);
-    var myCardTitleBack = $('<div class="card-title back"><img class="card-img" src="images/cardback.jpeg"></div>');
+    var myCardTitleBack = $('<div class="card-title back"><img class="card-img" src="images/cardback.jpg"></div>');
     myCardTitleFace.appendTo(myCardBlock);
     myCardTitleBack.appendTo(myCardBlock);
     myCardBlock.appendTo(myPanel);
@@ -149,7 +149,7 @@ function handleCardClick() {
 
 // for win put modal here
  function winnerAlert(){
-     alert('You Won!')
+     showModal();
  }
 
  function slowReveal() {
@@ -187,6 +187,7 @@ function resetGuesses() {
     // MODAL STUFF BELOW
     function showModal(){
         document.querySelector('#modalShadow').style.display = "block"
+
     }
 
 
