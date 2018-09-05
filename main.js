@@ -186,8 +186,11 @@ function resetGuesses() {
 
     // MODAL STUFF BELOW
     function showModal(){
-        document.querySelector('#modalShadow').style.display = "block"
-
+        $('#winModal').removeClass("hide");
+        $('.playAgain').on("click",function(){
+            $('#winModal').addClass("hide");
+        })
+        
     }
 
 
