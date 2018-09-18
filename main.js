@@ -137,8 +137,6 @@ function handleCardClick() {
         if (matches === totalPairs) {
             setTimeout(slowReveal, 500)
             setTimeout(winnerAlert, 500)
-            setTimeout(resetGuesses, 2000)
-
         }
         else {
             return;
@@ -150,6 +148,7 @@ function handleCardClick() {
 // for win put modal here
  function winnerAlert(){
      showModal();
+     resetGuesses();
  }
 
  function slowReveal() {
@@ -176,9 +175,6 @@ function resetGuesses() {
     $(".accuracy").text(accuracy);
     $(".gamesPlayed").text(gamesPlayed);
     $(".card-block").removeClass('revealed');
-//     $('.gamesPlayed').text(games_played);
-//     reset_stats();
-//     display_stats();
 };
 
 

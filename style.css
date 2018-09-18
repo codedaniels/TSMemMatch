@@ -122,6 +122,9 @@ p {
     pointer-events: none;
 }
 
+/* ---------------------------------------------------
+    MEDIA QUERIES - BOOTSTRAP BREAK POINTS
+----------------------------------------------------- */
 @media screen and (max-width: 1140px) {
     p {
         font-size: 1.4em;  
