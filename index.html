@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
         <title>Memory Match - Final 05/2018 - Daniel Stone</title>
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="main.js"></script>
@@ -9,13 +9,11 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <header>
+        <div class="container">
             <div class="jumbotron container-fluid">
             </div>
-        </header>
-                
-        <div class="wrapper">
     <!-- Sidebar Holder -->
+            <div class="wrapper">
             <nav id="sidebar">
                 <div class="sidebar-header">
                     <img id="stats" src="images/stats-transparent.png">
@@ -26,7 +24,7 @@
                         <p>Times Played: <span class="gamesPlayed"> 0 </span></p>
                     </li>
                     <li>
-                        <p> Number of Tries: <span class="attempts"> 0 </span></p>
+                        <p> Attempts: <span class="attempts"> 0 </span></p>
                     </li>
                     <li>
                         <p>Accuracy: <span class="accuracy">0</span>%</p>
@@ -34,19 +32,20 @@
                 </ul>
             </nav>
     <!-- Page Content Holder -->
-        <div>
-            <div class="container">
-                <div class="row">
+            <div>
+                <div class="container">
+                    <div class="row">
+                    </div>
                 </div>
             </div>
-        </div>
-    <!-- Modal example -->
-    <!-- a modal is a dialog box that takes control of the page from the user -->
-        <div id="winModal" class="winModal hide">
-            <div class="modal-body">
-                <iframe src="https://giphy.com/embed/35xfDMVIWewzm" width="480" height="333" frameBorder="0" class="giphy-embed"></iframe>
+        <!-- Modal example -->
+        <!-- a modal is a dialog box that takes control of the page from the user -->
+            <div id="winModal" class="winModal hide">
+                <div class="modal-body">
+                    <iframe src="https://giphy.com/embed/35xfDMVIWewzm" width="480" height="333" frameBorder="0" class="giphy-embed"></iframe>
+                </div>
+                <button class="btn btn-success playAgain">Play Again?</button>
             </div>
-            <button class="btn btn-success playAgain">Play Again?</button>
         </div>
     </body>
 </html>
