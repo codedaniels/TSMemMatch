@@ -79,7 +79,7 @@ function arrayRandomizer (anyArray) {
 // function to dynamically create divs for the game depending on the length i made using the splitting array's function
 function generateDivs () {        
     for (var i=0;i<randomizedArray.length;i++) {
-    var myCol = $('<div class="col-sm-3"></div>');
+    var myCol = $('<div class="columns col-sm-3 col-xs-4"></div>');
     var myPanel = $('<div class="card card-outline-info"></div>');
     var myCardBlock = $('<div class="card-block"></div>');
     // using the randomizedArray to input names

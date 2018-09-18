@@ -1,24 +1,26 @@
 body {
     background: url('images/background.jpeg');
-    background-size: 100%;
+    background-size: cover;
 }
 
 .jumbotron.container-fluid {
     height: 200px;
-    max-width: 1000px;
+    max-width: 100%;
     text-align: center;
     background: url('images/header-banner.png');
     background-position: top;
-    background-size: 100%;
+    background-size: auto;
     background-repeat: no-repeat;
 }
 
 p {
-    font-size: 1.1em;
+    font-size: 2em;
     font-weight: 300;
     line-height: 1.7em;
     color: #999;
 }
+
+
 
 .navbar {
     padding: 15px 10px;
@@ -64,6 +66,10 @@ p {
 /* ---------------------------------------------------
     BODY - CARD CONTENT
 ----------------------------------------------------- */
+.container {
+    height: 100%;
+    width: 100%;
+}
 
 .face, .back {
     position: absolute;
@@ -78,8 +84,9 @@ p {
 }
 
 .row {
-    width: 75%;
+    width: 95%;
 }
+
 .card {
     height: 10%;
     width: 10%;
@@ -113,6 +120,79 @@ p {
 .disabled {
     pointer-events: none;
 }
+
+@media screen and (max-width: 1300px) {
+    p {
+        font-size: 1.5em;
+        font-weight: 300;
+        line-height: 1.7em;
+        color: #999;
+    }
+    .card-block {
+        height: 150px;
+        width: 150px;
+        top: 10%;
+        left: 10%;
+        bottom: 5%;
+        position: relative;
+        padding: 1%;
+    }
+    .back .card-img {
+        height: 150px;
+        width: 150px;
+        padding: 1%;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .card-block {
+        height: 150px;
+        width: 150px;
+        top: 10%;
+        left: 10%;
+        bottom: 5%;
+        position: relative;
+        padding: 1%;
+    }
+    .back .card-img {
+        height: 150px;
+        width: 150px;
+        padding: 1%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    p {
+        font-size: 1.2em;
+        font-weight: 300;
+        line-height: 1.7em;
+        color: #999;
+    }
+    .card-block {
+        height: 100px;
+        width: 100px;
+        top: 10%;
+        left: 10%;
+        bottom: 5%;
+        position: relative;
+        padding: 1%;
+    }
+    .back .card-img {
+        height: 100px;
+        width: 100px;
+        padding: 1%;
+    }
+}
+/* ---------------------------------------------------
+    Card Effects
+----------------------------------------------------- */
+.card-block :hover {
+    box-shadow: 0px -5px 20px 9px gold;
+    border-radius: 10px;
+    cursor: url(images/fingerpointer-sm.png), auto;
+}
+
+
 /* ---------------------------------------------------
     Modal Stuff
 ----------------------------------------------------- */
