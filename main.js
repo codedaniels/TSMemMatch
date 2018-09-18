@@ -9,7 +9,7 @@ function afterPageLoad() {
 };
 
 function addEventListeners() {
-    $(".card-block").on('click',handleCardClick);
+    $(".card").on('click',handleCardClick);
     // document.querySelector('#modalButton').addEventListener('click', showModal)
 }
 
@@ -87,8 +87,7 @@ function generateDivs () {
     var myCardTitleBack = $('<div class="card-title back"><img class="card-img" src="images/cardback.jpg"></div>');
     myCardTitleFace.appendTo(myCardBlock);
     myCardTitleBack.appendTo(myCardBlock);
-    myCardBlock.appendTo(myPanel);
-    myPanel.appendTo(myCol);
+    myCardBlock.appendTo(myCol);
     myCol.appendTo('.row');
     }
 }   
@@ -111,6 +110,7 @@ function handleCardClick() {
         firstClickedCard = $(this);
         firstGuess = firstClickedCard.find('img').attr('src');
         firstClickedCard.addClass('revealed');
+        return;
     }
     else {
         if ($(this).hasClass('revealed')) {
@@ -135,9 +135,9 @@ function handleCardClick() {
         }
 
         if (matches === totalPairs) {
-            setTimeout(slowReveal, 500)
-            setTimeout(winnerAlert, 500)
-            setTimeout(resetGuesses, 2000)
+            setTimeout(slowReveal, 500);
+            setTimeout(resetGuesses, 500);
+            setTimeout(showModal, 500);
 
         }
         else {
@@ -175,12 +175,11 @@ function resetGuesses() {
     accuracy = 0
     $(".accuracy").text(accuracy);
     $(".gamesPlayed").text(gamesPlayed);
-    $(".card-block").removeClass('revealed');
+    $(".card").removeClass('revealed');
 //     $('.gamesPlayed').text(games_played);
 //     reset_stats();
 //     display_stats();
 };
-
 
 
 
@@ -192,7 +191,4 @@ function resetGuesses() {
         })
         
     }
-
-
-
 
