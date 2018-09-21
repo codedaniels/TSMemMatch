@@ -3,40 +3,12 @@ body {
     background-size: cover;
 }
 
-.jumbotron.container-fluid {
-    height: 15vh;
-    text-align: center;
-    background: url('images/header-banner.png');
-    background-position: bottom;
-    background-size: contain;
-    background-repeat: no-repeat;
-    display: block;
-    margin: 0;
-    padding-bottom: 0;
-}
-
 p {
     font-size: 1.7em;  
     font-weight: 300;
     line-height: 1.7em;
     color: #999;
     text-shadow: 2px 2px 2px black;
-}
-
-
-
-.navbar {
-    padding: 15px 10px;
-    border: none;
-    border-radius: 0;
-    margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-btn {
-    box-shadow: none;
-    outline: none !important;
-    border: none;
 }
 
 .wrapper {
@@ -53,17 +25,21 @@ p {
     max-width: 15%;
 }
 
-#sidebar ul p {
-    padding-left: 2%;
-    color: whitesmoke;
-    text-shadow: -4px 4px -1px black;
-    padding: 10px;
+#headImg {
+    padding-bottom: 25%;
+}
+
+p {
+    font-size: 1.7em;  
+    font-weight: 300;
+    line-height: 1.7em;
+    color: white;
+    text-shadow: 2px 2px 2px blue;
 }
 
 #stats {
-    padding-left: 2%;
-    min-width: 100%;
-    max-width: 100%;
+    min-width: 50%;
+    max-width: 50%;
 }
 
 
