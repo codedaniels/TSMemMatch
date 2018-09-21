@@ -1,194 +1,192 @@
 body {
+    margin: 0 auto;
     background: url('images/background.jpeg');
-    background-size: cover;
+    background-size: 100%;
 }
 
-.container.main {
-    height: 100vh;
-    width: 100vw;
-    margin: 5%;
-    padding: 0;
-    box-sizing: border-box;
+.header-img{
+    height: 20rem;
+    max-width: 1000px;
+    background: url('images/header-banner.png');
+    background-position: bottom;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
-.wrapper {
-    display: inline-flex;
-    height: 100vh;
-    width: 100vw;
+p {
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+.navbar {
+    padding: 15px 10px;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
 }
 
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
+
 #sidebar {
-    min-width: 15%;
-    max-width: 15%;
+    display: inline-block;
 }
 
-#headImg {
-    padding-bottom: 25%;
+.sidebar-header {
+    display: inline;
 }
 
-p {
-    font-size: 1.7em;  
-    font-weight: 300;
-    line-height: 1.7em;
-    color: white;
-    text-shadow: 2px 2px 2px blue;
+#sidebar ul p {
+    padding-left: 2%;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: whitesmoke;
+    background-color: rgba(135, 207, 235, 0.788);
+    text-shadow: 2px 2px 8px black;
+    padding: 10px;
 }
 
 #stats {
-    min-width: 50%;
-    max-width: 50%;
+    padding-left: 2%;
+    min-width: 15%;
+    max-width: 15%; 
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+    display: inline-flex;
 }
 
 
 /* ---------------------------------------------------
     BODY - CARD CONTENT
 ----------------------------------------------------- */
+.column {
+    padding: .5%;
+}
 
 .face, .back {
     position: absolute;
     left: 0;
     top: 0;
-    height: 25%;
-    width: 25%;
+    height: 100%;
+    width: 100%;
 }
 
 .card-block.revealed .back {
     display: none
 }
 
-.row {
-    width: 100%;
+.card {
     height: 100%;
-    margin:0;
+    width: 100%;
 }
 
 .card-block {
-    height: 25%;
-    width: 25%;
+    height: 230px;
+    width: 230px;
+    top: 10%;
+    left: 10%;
     bottom: 5%;
     position: relative;
-    padding: 1%;
 }
 
-.back .cardBack {
-    height: 25%;
-    width: 25%;
-    padding: 1%;
+.back .card-img {
+    height: 230px;
+    width: 230px;
+    border-radius: 10%;
+
 }
 
-img.pictures {
-    object-fit: contain;
-    height: 25%;
-    max-width: 25%;
+.pictures {
+    height: 100%;
+    max-width: 100%;
+    min-width: 100%;
     position: relative;
-}
+    border-radius: 10%;
 
+}
 
 /* ---------------------------------------------------
-    MEDIA QUERIES - BOOTSTRAP BREAK POINTS
------------------------------------------------------ */
-/* @media screen and (max-width: 1140px) {
-    p {
-        font-size: 1.4em;  
-    }
-    .card-block {
-        height: 165px;
-        width: 165px;
-    }
-    .back .card-img {
-        height: 165px;
-        width: 165px;
-    }
-}
-
-@media screen and (max-width: 960px) {
-    p {
-        font-size: 1em;  
-    }
-    .card-block {
-        height: 128px;
-        width: 128px;
-    }
-    .back .card-img {
-        height: 128px;
-        width: 128px;
-    }
-}
-
-@media screen and (max-width: 720px) {
-    p {
-        font-size: 0.8em;  
-    }
-    .jumbotron.container-fluid {
-        height: 150px;
-    }
-    .card-block {
-        height: 100px;
-        width: 100px;
-    }
-    .back .card-img {
-        height: 100px;
-        width: 100px;
-    }
-}
-
-@media screen and (max-width: 540px) {
-    p {
-        font-size: 0.6em;  
-    }
-    .card-block {
-        height: 72px;
-        width: 72px;
-    }
-    .back .card-img {
-        height: 72px;
-        width: 72px;
-    }
-}
-
-@media screen and (max-width: 420px) {
-    p {
-        font-size: 0.4em;  
-    }
-    .card-block {
-        height: 55px;
-        width: 55px;
-    }
-    .back .card-img {
-        height: 55px;
-        width: 55px;
-    }
-}
-
-@media screen and (max-width: 376px) {
-    p {
-        font-size: 0.3em;  
-    }
-    .card-block {
-        height: 42px;
-        width: 42px;
-    }
-    .back .card-img {
-        height: 42px;
-        width: 42px;
-    }
-} */
-/* ---------------------------------------------------
-    Card Effects
+    Card Animation
 ----------------------------------------------------- */
 .card-block :hover {
     box-shadow: 0px -5px 20px 9px gold;
+    border-radius: 10px;
     cursor: url(images/fingerpointer-sm.png), auto;
-    z-index: 1;
 }
 
-.card-block.revealed:hover {
-    cursor: default;
+.card-block.revealed :hover {
     box-shadow: none;
-    pointer-events: none;
+    cursor: default;
+}
+
+/* ---------------------------------------------------
+    Media Queries 
+----------------------------------------------------- */
+@media only screen and (max-width: 970px) {
+    .header-img{
+        height: 14rem;
+    }
+    .card-block {
+        height: 180px;
+        width: 180px;
+        top: 10%;
+        left: 10%;
+        bottom: 5%;
+        position: relative;
+    }
+    .back .card-img {
+        height: 180px;
+        width: 180px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .header-img{
+        height: 14rem;
+    }
+    .card-block {
+        height: 180px;
+        width: 180px;
+        top: 10%;
+        left: 10%;
+        bottom: 5%;
+        position: relative;
+    }
+    .back .card-img {
+        height: 180px;
+        width: 180px;
+    }
+}
+
+@media only screen and (max-width: 615px) {
+    .header-img{
+        height: 11rem;
+    }
+    .card-block {
+        height: 230px;
+        width: 230px;
+        top: 10%;
+        left: 10%;
+        bottom: 5%;
+        position: relative;
+    }
+    .back .card-img {
+        height: 230px;
+        width: 230px;
+    }
 }
 
 /* ---------------------------------------------------
@@ -215,4 +213,3 @@ img.pictures {
 .modal-body {
     align-content: center;
 }
-

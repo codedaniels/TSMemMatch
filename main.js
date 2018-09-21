@@ -79,14 +79,16 @@ function arrayRandomizer (anyArray) {
 // function to dynamically create divs for the game depending on the length i made using the splitting array's function
 function generateDivs () {        
     for (var i=0;i<randomizedArray.length;i++) {
-    var myCol = $('<div class="card-block col-xs-3"></div>');
+    var myCol = $('<div class="column col-xs-6 col-sm-3"></div>');
+    var myPanel = $('<div class="card card-outline-info"></div>');
     var myCardBlock = $('<div class="card-block"></div>');
     // using the randomizedArray to input names
     var myCardTitleFace = $(`<div class="card-title face"><img class="pictures card-${randomizedArray[i].name}" src="${randomizedArray[i].image}"></div>`);
-    var myCardTitleBack = $('<div class="card-title back"><img class="cardImg" src="images/cardback.jpg"></div>');
+    var myCardTitleBack = $('<div class="card-title back"><img class="card-img" src="images/cardback.jpg"></div>');
     myCardTitleFace.appendTo(myCardBlock);
     myCardTitleBack.appendTo(myCardBlock);
-    myCardBlock.appendTo(myCol);
+    myCardBlock.appendTo(myPanel);
+    myPanel.appendTo(myCol);
     myCol.appendTo('.row');
     }
 }   
@@ -135,6 +137,8 @@ function handleCardClick() {
         if (matches === totalPairs) {
             setTimeout(slowReveal, 500)
             setTimeout(winnerAlert, 500)
+            setTimeout(resetGuesses, 2000)
+
         }
         else {
             return;
@@ -146,7 +150,6 @@ function handleCardClick() {
 // for win put modal here
  function winnerAlert(){
      showModal();
-     resetGuesses();
  }
 
  function slowReveal() {
@@ -173,20 +176,19 @@ function resetGuesses() {
     $(".accuracy").text(accuracy);
     $(".gamesPlayed").text(gamesPlayed);
     $(".card-block").removeClass('revealed');
+//     $('.gamesPlayed').text(games_played);
+//     reset_stats();
+//     display_stats();
 };
 
 
 
 
-    // MODAL STUFF BELOW
-    function showModal(){
-        $('#winModal').removeClass("hide");
-        $('.playAgain').on("click",function(){
-            $('#winModal').addClass("hide");
-        })
-        
-    }
-
-
-
-
+// MODAL STUFF BELOW
+function showModal(){
+    $('#winModal').removeClass("hide");
+    $('.playAgain').on("click",function(){
+        $('#winModal').addClass("hide");
+    })
+    
+}
