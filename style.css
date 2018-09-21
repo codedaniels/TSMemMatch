@@ -189,6 +189,24 @@ p {
     }
 }
 
+@media only screen and (max-width: 450px) {
+    .header-img{
+        height: 7rem;
+    }
+    .card-block {
+        height: 155px;
+        width: 155px;
+        top: 10%;
+        left: 10%;
+        bottom: 5%;
+        position: relative;
+    }
+    .back .card-img {
+        height: 155px;
+        width: 155px;
+    }
+}
+
 /* ---------------------------------------------------
     Modal Stuff
 ----------------------------------------------------- */
