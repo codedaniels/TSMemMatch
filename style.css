@@ -1,30 +1,24 @@
 body {
+    margin: 0 auto;
     background: url('images/background.jpeg');
-    background-size: cover;
+    background-size: 100%;
 }
 
-.jumbotron.container-fluid {
-    height: 200px;
-    text-align: center;
+.header-img{
+    height: 20rem;
+    max-width: 1000px;
     background: url('images/header-banner.png');
     background-position: bottom;
-    background-size: contain;
+    background-size: 100%;
     background-repeat: no-repeat;
-    display: block;
-    margin: 0;
-    padding-bottom: 0;
-        
 }
 
 p {
-    font-size: 1.7em;  
+    font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
     color: #999;
-    text-shadow: 2px 2px 2px black;
 }
-
-
 
 .navbar {
     padding: 15px 10px;
@@ -40,41 +34,46 @@ p {
     border: none;
 }
 
-.wrapper {
-    display: inline-flex;
-    height: 100vh;
-}
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
 #sidebar {
-    min-width: 15%;
-    max-width: 15%;
+    display: inline-block;
+}
+
+.sidebar-header {
+    display: inline;
 }
 
 #sidebar ul p {
     padding-left: 2%;
+    font-size: 1.5rem;
+    font-weight: 400;
     color: whitesmoke;
-    text-shadow: -4px 4px -1px black;
+    background-color: rgba(135, 207, 235, 0.788);
+    text-shadow: 2px 2px 8px black;
     padding: 10px;
 }
 
 #stats {
     padding-left: 2%;
-    min-width: 100%;
-    max-width: 100%;
+    min-width: 15%;
+    max-width: 15%; 
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+    display: inline-flex;
 }
 
 
 /* ---------------------------------------------------
     BODY - CARD CONTENT
 ----------------------------------------------------- */
-.container {
-    height: 100%;
-    padding-bottom: 3%;
-    padding-left: 0;
-    margin-left: 1%;
+.column {
+    padding: .5%;
 }
 
 .face, .back {
@@ -89,126 +88,38 @@ p {
     display: none
 }
 
-.row {
-    width: 70%;
+.card {
+    height: 100%;
+    width: 100%;
 }
 
-.columns {
-    padding: 0;
-}
 .card-block {
-    height: 200px;
-    width: 200px;
-    top: 1%;
-    left: 1%;
+    height: 230px;
+    width: 230px;
+    top: 10%;
+    left: 10%;
     bottom: 5%;
     position: relative;
-    padding: 1%;
 }
 
 .back .card-img {
-    height: 200px;
-    width: 200px;
-    padding: 1%;
+    height: 230px;
+    width: 230px;
+    border-radius: 10%;
+
 }
 
 .pictures {
-    height: 95%;
-    max-width: 95%;
+    height: 100%;
+    max-width: 100%;
+    min-width: 100%;
     position: relative;
-}
+    border-radius: 10%;
 
-.disabled {
-    pointer-events: none;
 }
 
 /* ---------------------------------------------------
-    MEDIA QUERIES - BOOTSTRAP BREAK POINTS
------------------------------------------------------ */
-@media screen and (max-width: 1140px) {
-    p {
-        font-size: 1.4em;  
-    }
-    .card-block {
-        height: 165px;
-        width: 165px;
-        top: 10%;
-        left: 10%;
-        bottom: 5%;
-        position: relative;
-        padding: 1%;
-    }
-    .back .card-img {
-        height: 165px;
-        width: 165px;
-        padding: 1%;
-    }
-}
-
-@media screen and (max-width: 960px) {
-    p {
-        font-size: 1em;  
-    }
-    .card-block {
-        height: 128px;
-        width: 128px;
-        top: 10%;
-        left: 10%;
-        bottom: 5%;
-        position: relative;
-        padding: 1%;
-    }
-    .back .card-img {
-        height: 128px;
-        width: 128px;
-        padding: 1%;
-    }
-}
-
-@media screen and (max-width: 720px) {
-    p {
-        font-size: 0.8em;  
-    }
-    .jumbotron.container-fluid {
-        height: 150px;
-    }
-    .card-block {
-        height: 100px;
-        width: 100px;
-        top: 10%;
-        left: 10%;
-        bottom: 5%;
-        position: relative;
-        padding: 1%;
-    }
-    .back .card-img {
-        height: 100px;
-        width: 100px;
-        padding: 1%;
-    }
-}
-
-@media screen and (max-width: 540px) {
-    p {
-        font-size: 0.6em;  
-    }
-    .card-block {
-        height: 72px;
-        width: 72px;
-        top: 10%;
-        left: 10%;
-        bottom: 5%;
-        position: relative;
-        padding: 1%;
-    }
-    .back .card-img {
-        height: 72px;
-        width: 72px;
-        padding: 1%;
-    }
-}
-/* ---------------------------------------------------
-    Card Effects
+    Card Animation
 ----------------------------------------------------- */
 .card-block :hover {
     box-shadow: 0px -5px 20px 9px gold;
@@ -216,6 +127,67 @@ p {
     cursor: url(images/fingerpointer-sm.png), auto;
 }
 
+.card-block.revealed :hover {
+    box-shadow: none;
+    cursor: default;
+}
+
+/* ---------------------------------------------------
+    Media Queries 
+----------------------------------------------------- */
+@media only screen and (max-width: 970px) {
+    .header-img{
+        height: 14rem;
+    }
+    .card-block {
+        height: 180px;
+        width: 180px;
+        top: 10%;
+        left: 10%;
+        bottom: 5%;
+        position: relative;
+    }
+    .back .card-img {
+        height: 180px;
+        width: 180px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .header-img{
+        height: 14rem;
+    }
+    .card-block {
+        height: 180px;
+        width: 180px;
+        top: 10%;
+        left: 10%;
+        bottom: 5%;
+        position: relative;
+    }
+    .back .card-img {
+        height: 180px;
+        width: 180px;
+    }
+}
+
+@media only screen and (max-width: 615px) {
+    .header-img{
+        height: 11rem;
+    }
+    .card-block {
+        height: 230px;
+        width: 230px;
+        top: 10%;
+        left: 10%;
+        bottom: 5%;
+        position: relative;
+    }
+    .back .card-img {
+        height: 230px;
+        width: 230px;
+    }
+}
 
 /* ---------------------------------------------------
     Modal Stuff
@@ -241,4 +213,3 @@ p {
 .modal-body {
     align-content: center;
 }
-
