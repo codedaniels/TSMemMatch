@@ -80,11 +80,13 @@ function arrayRandomizer (anyArray) {
 function generateDivs () {        
     for (var i=0;i<randomizedArray.length;i++) {
     var myCol = $('<div class="card-block col-xs-3"></div>');
+    var myCardBlock = $('<div class="card-block"></div>');
     // using the randomizedArray to input names
     var myCardTitleFace = $(`<div class="card-title face"><img class="pictures card-${randomizedArray[i].name}" src="${randomizedArray[i].image}"></div>`);
-    var myCardTitleBack = $('<div class="card-title back"><img class="cardBack" src="images/cardback.jpg"></div>');
-    myCardTitleFace.appendTo(myCol);
-    myCardTitleBack.appendTo(myCol);
+    var myCardTitleBack = $('<div class="card-title back"><img class="cardImg" src="images/cardback.jpg"></div>');
+    myCardTitleFace.appendTo(myCardBlock);
+    myCardTitleBack.appendTo(myCardBlock);
+    myCardBlock.appendTo(myCol);
     myCol.appendTo('.row');
     }
 }   
